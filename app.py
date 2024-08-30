@@ -29,7 +29,7 @@ def get_recommendations(medicine_name, cosine_sim=cosine_sim):
 # Streamlit App
 
 # Display an image at the top
-st.image('path/to/your/image.jpg', use_column_width=True)  # Replace with your image path
+st.image('medicine_recommendation.jpg', use_column_width=True)  # Replace with your image path
 
 # Set a custom background color or text color using Markdown and HTML
 st.markdown("""
