@@ -27,7 +27,27 @@ def get_recommendations(medicine_name, cosine_sim=cosine_sim):
     return medicine_data['Medicine Name'].iloc[medicine_indices]
 
 # Streamlit App
-st.title('Medicine Recommendation System')
+
+# Display an image at the top
+st.image('path/to/your/image.jpg', use_column_width=True)  # Replace with your image path
+
+# Set a custom background color or text color using Markdown and HTML
+st.markdown("""
+    <style>
+    .stApp {
+        background-color: #f0f2f6;  /* Change the background color */
+    }
+    .main-title {
+        color: #007acc;  /* Change the title color */
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+# Main title
+st.markdown('<div class="main-title">Medicine Recommendation System</div>', unsafe_allow_html=True)
 
 # Dropdown for selecting a medicine
 medicine_name = st.selectbox('Select a Medicine:', medicine_data['Medicine Name'].unique())
@@ -35,7 +55,7 @@ medicine_name = st.selectbox('Select a Medicine:', medicine_data['Medicine Name'
 # Button to get recommendations
 if st.button('Get Recommendations'):
     recommendations = get_recommendations(medicine_name)
-    st.write(f"Recommended medicines similar to '{medicine_name}':")
+    st.write(f"Recommended medicines similar to **{medicine_name}**:")
     for i, rec in enumerate(recommendations, 1):
         st.write(f"{i}. {rec}")
 
